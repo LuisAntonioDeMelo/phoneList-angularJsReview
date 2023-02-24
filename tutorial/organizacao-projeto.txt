@@ -1,0 +1,78 @@
+...
+    Inline Style
+    > app /
+        >index.html
+        >angular.js
+
+        tudo no mesmo arquivo
+        Projetos muitos simples
+        Prototipos
+        Provas de conceito
+
+    Stereotyped Style 
+     > app /
+      > css /
+        > app.css
+     > js /
+       > app.js
+       > controller.js
+       > directives.js
+       > filters.js
+     > lib /
+       > angular.js
+    > view / 
+        > login.html
+        > lista.html
+     > index.html 
+
+
+    Specific Style
+    > app /
+     css /
+        > app.css
+    > js /
+      > controller / 
+        > loginCtrl.js
+        > listaCtrl.js
+      > directives /
+        > painelDirective.js
+        > tableDirective.js
+     > services /
+        > loginService.js
+        > listaService.js
+      > app.js
+     > lib /
+        > angular.js
+     > view /
+        > login.html
+        > lista.html
+    > index.html 
+
+    Projetos Medios
+    Muitos componentes
+    Numero de linhas em cada arquivo já começa a incomodar
+    Do,ímop relativamente extenso 
+
+    Domain Style 
+      > app /
+            > app /
+                > app>js
+                > app.css
+            > login /
+                > login.css
+                > login.html
+                > loginCtrl.js
+                > loginService.js
+            > lista /
+                > lista.css
+                > lista.html
+                > listaCtrl.js
+                > listaService.js
+            > shared /
+                > painelDirective
+                > tableDirective
+            > lib
+                > angular.js
+            > index.html
+    Agrupando os arquiovs por domínio 
+    Projetos grandes
