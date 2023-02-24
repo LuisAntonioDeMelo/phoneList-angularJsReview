@@ -6,9 +6,9 @@ ngRepeat  <br/>
 ngModel  <br/>
 ngClick {{eventos}}  <br/>
 ngDisabled  <br/>
-ngOptions  <br/> <br/>
+ngOptions  <br/> 
 ngClass e ngStyle  <br/>
-ngShow, ngHide, e ngIf 
+ngShow, ngHide, e ngIf  <br/>
 ngInclude  <br/>
 ngRequired  <br/>
 $valid e $invalid  <br/>
