@@ -1,7 +1,7 @@
 ﻿## angularJs Review
  Projeto implementando as features do angularjs(old school) 👻
  
-//ngBind  
+ngBind\  
 //ngRepeat 
 //ngModel 
 //ngClick {{eventos}} 
