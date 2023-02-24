@@ -1,31 +1,31 @@
 ﻿## angularJs Review
  Projeto implementando as features do angularjs(old school) 👻
  
-ngBind  
-ngRepeat 
-ngModel 
-ngClick {{eventos}} 
-ngDisabled 
-ngOptions 
-ngClass e ngStyle 
+ngBind  <br/>
+ngRepeat  <br/>
+ngModel  <br/>
+ngClick {{eventos}}  <br/>
+ngDisabled  <br/>
+ngOptions  <br/> <br/>
+ngClass e ngStyle  <br/>
 ngShow, ngHide, e ngIf 
-ngInclude 
-ngRequired 
-$valid e $invalid 
-$pristine e $dirty 
-ngMinlength e ngMaxlength 
-$error 
-ngPattern
-filter (pipe)  - uppercase | date | filter | orderby | currency | number | limitTo
-/$http
-sop(cors) - orign policy
-services 
-factory 
+ngInclude  <br/>
+ngRequired  <br/>
+$valid e $invalid  <br/>
+$pristine e $dirty  <br/>
+ngMinlength e ngMaxlength  <br/>
+$error  <br/>
+ngPattern <br/>
+filter (pipe)  - uppercase | date | filter | orderby | currency | number | limitTo <br/>
+/$http <br/>
+sop(cors) - orign policy <br/>
+services  <br/>
+factory  <br/>
 service ;
-value -  configValue 
-provider 
-directive - template/ templateUrl / replace / restrict / scope / transclude
-ng-router 
+value -  configValue  <br/>
+provider  <br/>
+directive - template/ templateUrl / replace / restrict / scope / transclude <br/>
+ng-router  <br/>
 
 
  yt https://www.youtube.com/playlist?list=PLQCmSnNFVYnTD5p2fR4EXmtlR6jQJMbPb
