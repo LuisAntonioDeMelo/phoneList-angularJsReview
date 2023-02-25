@@ -1,4 +1,4 @@
-angular.module("listaTelefonica").directive("uiDate", function () {
+angular.module("listaTelefonica").directive("uiDate", function ($filter) {
   return {
     require: "ngModel",
     link: function (scope, element, attrs, ctrl) {
@@ -12,15 +12,21 @@ angular.module("listaTelefonica").directive("uiDate", function () {
         }
         return date;
       };
+
       element.bind("keyup", function () {
         ctrl.$setViewValue(_formatDate(ctrl.$viewValue));
         ctrl.$render();
       });
 
       ctrl.$parsers.push(function (value) {
-        if (value.length === 8) {
-          return value;
+        if (value.length === 10) {
+          var dateArray = value.splice("/");
+          return new Date(dateArray[2], dateArray[1] - 1, dateArray[0]);
         }
+      });
+
+      ctrl.$formatters.push(function (value) {
+        $filter("date")(value, "dd/MM/yyyy");
       });
     },
   };
