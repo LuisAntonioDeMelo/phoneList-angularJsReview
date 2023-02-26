@@ -2,47 +2,27 @@ angular
   .module("listaTelefonica")
   .controller(
     "listaTelefonicaCtrl",
-    function ($scope, contatosAPI, operadorasAPI, serialGenerator) {
+    function ($scope, operadoras, contatos, serialGenerator) {
       $scope.app = "Lista Telefonica";
-      $scope.operadoras = [];
-      $scope.contatos = [];
-      console.log(serialGenerator.generate());
+      $scope.operadoras = operadoras.data;
+      $scope.contatos = contatos.data;
+      // console.log(serialGenerator.generate());
 
-      var carregarOperadoras = function () {
-        operadorasAPI.getOperadoras().then(function (response) {
-          $scope.operadoras = response.data;
+      const generateSerial = function (contatos) {
+        contatos.forEach((contato) => {
+          contato.serial = serialGenerator.generate();
         });
       };
-
-      var carregarContatos = function () {
-        contatosAPI
-          .getContatos()
-          .then(function (response) {
-            $scope.contatos = response.data;
-          })
-          .catch(function (error) {
-            $scope.error = "Não foi possivel carregar os dados";
-          });
-      };
-
-      carregarOperadoras();
-      carregarContatos();
-
-      $scope.adicionarContato = function (contato) {
-        contato.data = new Date();
-
-        contato.serial = serialGenerator.generate();
-        contatosAPI
-          .saveContato(contato)
-          .then((data) => {
-            delete $scope.contato;
-            $scope.contatoForm.$setPristine();
-            carregarContatos();
-          })
-          .catch((error) => {
-            $scope.message = "Erro ao incluir";
-          });
-      };
+      // var carregarContatos = function () {
+      //   contatosAPI
+      //     .getContatos()
+      //     .then(function (response) {
+      //       $scope.contatos = response.data;
+      //     })
+      //     .catch(function (error) {
+      //       $scope.error = "Não foi possivel carregar os dados";
+      //     });
+      // };
 
       $scope.apagarContatos = function (contatos) {
         $scope.contatos = contatos.filter(function (contato) {
@@ -59,6 +39,8 @@ angular
       $scope.ordenarPor = function (field) {
         $scope.criterioDeOrdenacao = field;
       };
+
+      generateSerial($scope.contatos);
     }
   );
 
