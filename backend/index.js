@@ -10,6 +10,7 @@ app.get("/", function (req, res) {
 });
 const contatos = [
   {
+    id: 1,
     nome: "Pedro",
     telefone: "99998888",
     cor: "blue",
@@ -17,6 +18,7 @@ const contatos = [
     data: new Date(),
   },
   {
+    id: 2,
     nome: "Ana",
     telefone: "9999877",
     cor: "yellow",
@@ -24,6 +26,7 @@ const contatos = [
     data: new Date(),
   },
   {
+    id: 3,
     nome: "Maria",
     telefone: "999983123",
     cor: "red",
@@ -31,6 +34,7 @@ const contatos = [
     data: new Date(),
   },
   {
+    id: 4,
     nome: "João",
     telefone: "99998812",
     cor: "orange",
@@ -51,6 +55,16 @@ app.get("/contatos", function (req, res) {
   res.send(contatos);
 });
 
+app.get("/contatos/:id", function (req, res) {
+  const { id } = req.params;
+  //const contatoPorId = contatos[id - 1];
+  const contatoPorId = contatos.find((data) => data.id === parseInt(id));
+  if (!contatoPorId) {
+    return res.status(404).json({ error: " not found " });
+  }
+  return res.send(contatoPorId);
+});
+
 app.post("/contatos", function (req, res) {
   //console.log(req.url, req.method ,req.data, req.body)
   console.log(req.body);
@@ -59,6 +73,7 @@ app.post("/contatos", function (req, res) {
   //const nomeJaContem = contatos.find(n =>  n.nome === nome);
 
   contatos.push({
+    id: contatos.length + 1,
     nome,
     telefone,
     operadora,
