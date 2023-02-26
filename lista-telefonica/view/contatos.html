@@ -7,6 +7,7 @@
       type="text"
       ng-model="criterioDeBusca"
       placeholder="O que você está buscando?"
+      ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}"
     />
     <!-- <ui-alert title="Ops, aconteceu um problema!" message="error"> </ui-alert> -->
     <ui-alert ng-if="error" title="Ops, aconteceu um problema!">
@@ -40,14 +41,19 @@
         <th><a href="" ng-click="ordenarPor('telefone')">Telefone</a></th>
         <th>Operadora</th>
         <th>Data</th>
+        <th>Preço</th>
         <th>Cor</th>
       </tr>
       <tr
         ng-class="{selecionado: contato.selecionado}"
-        ng-repeat="contato in contatos | filter: criterioDeBusca | orderBy: criterioDeOrdenacao : false"
+        ng-repeat="contato in contatos | filter: criterioDeBusca | orderBy: criterioDeOrdenacao : false track by contato.id"
       >
         <td>
-          <input type="checkbox" ng-model="contato.selecionado" />
+          <input
+            type="checkbox"
+            ng-model="contato.selecionado"
+            ng-click="verificaContatoSelecionado(contatos)"
+          />
         </td>
 
         <td>{{contato.serial}}</td>
@@ -56,9 +62,10 @@
             >{{contato.nome | formatName }}</a
           >
         </td>
-        <td>{{contato.telefone}}</td>
-        <td>{{contato.operadora.nome}}</td>
-        <td>{{contato.data | date:'dd/MM/yyyy HH:mm' }}</td>
+        <td>{{::contato.telefone}}</td>
+        <td>{{::contato.operadora.nome}}</td>
+        <td>{{::contato.data | date:'dd/MM/yyyy HH:mm' }}</td>
+        <td>{{::contato.operadora.precoImposto | currency}}</td>
         <td>
           <div
             style="width: 20px; height: 20px"
@@ -72,7 +79,7 @@
     <button
       class="btn btn-danger btn-block"
       ng-click="apagarContatos(contatos)"
-      ng-if="isContatoSelecionado(contatos)"
+      ng-if="contatoSelecionado(contatos)"
     >
       Apagar contato
     </button>

@@ -23,14 +23,36 @@ angular
       //       $scope.error = "Não foi possivel carregar os dados";
       //     });
       // };
+      const calcularImposto = function (valor) {
+        const imposto = 0.6;
+        return (valor += valor * imposto);
+      };
+
+      const calcularImpostos = (contatos) => {
+        contatos.forEach((c) => {
+          c.operadora.precoImposto = calcularImposto(c.operadora.preco);
+        });
+      };
+
+      const init = () => {
+        generateSerial($scope.contatos);
+        calcularImpostos($scope.contatos);
+      };
 
       $scope.apagarContatos = function (contatos) {
         $scope.contatos = contatos.filter(function (contato) {
           if (!contato.selecionado) return contato;
         });
+        // $scope.verificaContatoSelecionado(contatos);
       };
 
-      $scope.isContatoSelecionado = function (contatos) {
+      // $scope.verificaContatoSelecionado = function (contatos) {
+      //   const selecionado = contatos.some(function (contato) {
+      //     return contato.selecionado;
+      //   });
+      //   $scope.hasContatoSelecionado = selecionado;
+      // };
+      $scope.contatoSelecionado = function (contatos) {
         return contatos.some(function (contato) {
           return contato.selecionado;
         });
@@ -39,8 +61,8 @@ angular
       $scope.ordenarPor = function (field) {
         $scope.criterioDeOrdenacao = field;
       };
-
-      generateSerial($scope.contatos);
+      init();
+      console.log($scope.contatos);
     }
   );
 

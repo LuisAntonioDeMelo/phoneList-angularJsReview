@@ -14,7 +14,7 @@ const contatos = [
     nome: "Pedro",
     telefone: "99998888",
     cor: "blue",
-    operadora: { nome: "Oi", codigo: 14, categoria: "Celular" },
+    operadora: { nome: "Oi", codigo: 14, categoria: "Celular", preco: 2 },
     data: new Date(),
   },
   {
@@ -22,7 +22,7 @@ const contatos = [
     nome: "Ana",
     telefone: "9999877",
     cor: "yellow",
-    operadora: { nome: "Vivo", codigo: 15, categoria: "Celular" },
+    operadora: { nome: "Vivo", codigo: 15, categoria: "Celular", preco: 1 },
     data: new Date(),
   },
   {
@@ -30,7 +30,7 @@ const contatos = [
     nome: "Maria",
     telefone: "999983123",
     cor: "red",
-    operadora: { nome: "Tim", codigo: 41, categoria: "Celular" },
+    operadora: { nome: "Tim", codigo: 41, categoria: "Celular", preco: 1 },
     data: new Date(),
   },
   {
@@ -38,7 +38,7 @@ const contatos = [
     nome: "João",
     telefone: "99998812",
     cor: "orange",
-    operadora: { nome: "Tim", codigo: 41, categoria: "Celular" },
+    operadora: { nome: "Tim", codigo: 41, categoria: "Celular", preco: 1 },
     data: new Date(),
   },
 ];
